@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }:root {
-      
 –blue:       #4A90D9;
 –blue-light: #7BB3E8;
 –blue-pale:  #EAF3FB;
@@ -126,8 +125,8 @@ display: flex; flex-direction: column;
 align-items: center; justify-content: center;
 overflow: hidden;
 }
-.hero-photo { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-placeholder { dispay: none; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: none; }
+.photo-placeholder { text-align: center; padding: 24px 16px; }
 .photo-icon {
 width: 56px; height: 56px; border-radius: 50%;
 background: var(–blue-pale);
@@ -135,8 +134,8 @@ display: flex; align-items: center; justify-content: center;
 margin: 0 auto 12px;
 }
 .photo-icon svg { width: 26px; height: 26px; fill: var(–blue); }
-.photo-placeholder p { display: none; }
-.photo-placeholder strong { display: none; }
+.photo-placeholder p { color: var(–ink-muted); font-size: .78rem; line-height: 1.6; }
+.photo-placeholder strong { display: block; color: var(–blue); font-size: .8rem; margin-bottom: 4px; }
 /* ─── CARDS SECTION ─── */
 .section-cards {
 padding: 64px 40px;
@@ -474,7 +473,7 @@ to   { opacity: 1; transform: translateY(0); }
           </div>
         </div>
         <div class="hero-photo">
-          <img id="heroImg" src="Fotka.jpeg" alt="Profilová fotografie" />
+          <img id="heroImg" src="Fotka.jpg" alt="Profilová fotografie" />
           <div class="photo-placeholder">
             <div class="photo-icon">
               <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
