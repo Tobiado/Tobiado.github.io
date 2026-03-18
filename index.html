@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-
-<html lang="cs">
+<!DOCTYPE html><html lang="cs">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,9 +7,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }:root {
 –blue:       #4A90D9;
 –blue-light: #7BB3E8;
 –blue-pale:  #EAF3FB;
@@ -28,9 +24,7 @@
 –max-w:      1100px;
 –radius:     6px;
 }
-
 html { scroll-behavior: smooth; }
-
 body {
 font-family: var(–font-sans);
 background: var(–white);
@@ -39,10 +33,10 @@ min-height: 100vh;
 display: flex;
 flex-direction: column;
 }
-
+/* ─── PAGE SYSTEM ─── */
 .page { display: none; flex-direction: column; min-height: 100vh; }
 .page.active { display: flex; }
-
+/* ─── NAV ─── */
 nav {
 position: sticky; top: 0; z-index: 100;
 background: var(–white);
@@ -75,9 +69,9 @@ cursor: pointer;
 }
 .nav-links li a:hover { color: var(–blue); background: var(–blue-pale); }
 .nav-links li a.active { color: var(–blue); background: var(–blue-pale); }
-
+/* ─── MAIN ─── */
 main { flex: 1; }
-
+/* ─── HOME HERO ─── */
 .hero {
 background: var(–white);
 padding: 72px 40px 64px;
@@ -121,18 +115,28 @@ letter-spacing: .06em; text-transform: uppercase;
 padding: 5px 12px; border-radius: 50px;
 border: 1px solid var(–blue-mid);
 }
-
-/* ─── PHOTO — opraveno ─── */
+/* ─── PHOTO ─── */
 .hero-photo {
 aspect-ratio: 3/4;
 background: var(–off-white);
 border-radius: 4px;
 border: 1px solid var(–border);
+display: flex; flex-direction: column;
+align-items: center; justify-content: center;
 overflow: hidden;
 }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.photo-placeholder { display: none; }
-
+.hero-photo  { width: 100%; height: 100%; object-fit: cover; display: block; }
+.photo-placeholder { dispay: none; }
+.photo-icon {
+width: 56px; height: 56px; border-radius: 50%;
+background: var(–blue-pale);
+display: flex; align-items: center; justify-content: center;
+margin: 0 auto 12px;
+}
+.photo-icon svg { width: 26px; height: 26px; fill: var(–blue); }
+.photo-placeholder p { display: none; }
+.photo-placeholder strong { display: none; }
+/* ─── CARDS SECTION ─── */
 .section-cards {
 padding: 64px 40px;
 background: var(–off-white);
@@ -189,7 +193,7 @@ font-size: .78rem; font-weight: 600;
 color: var(–blue); letter-spacing: .05em; text-transform: uppercase;
 display: flex; align-items: center; gap: 5px;
 }
-
+/* ─── SUBPAGE HERO ─── */
 .subpage-hero {
 background: var(–off-white);
 padding: 32px 40px 28px;
@@ -211,19 +215,25 @@ margin-bottom: 8px; line-height: 1.2;
 }
 .subpage-accent { color: var(–blue); }
 .subpage-subtitle { color: var(–ink-muted); font-size: .95rem; font-weight: 300; }
-
+/* ─── SUBPAGE BODY ─── */
 .subpage-body { padding: 52px 40px; }
-.subpage-body-inner { max-width: var(–max-w); margin: 0 auto; }
-
+.subpage-body-inner {
+max-width: var(–max-w); margin: 0 auto;
+}
+/* ─── DRIVE BAR ON SUBPAGES ─── */
 .drive-bar {
 display: flex; align-items: center; justify-content: space-between;
 border: 1px solid var(–border); border-radius: var(–radius);
 padding: 16px 24px; background: var(–white);
 margin-top: 32px; flex-wrap: wrap; gap: 12px;
 }
-.drive-bar-left { display: flex; align-items: center; gap: 10px; }
+.drive-bar-left {
+display: flex; align-items: center; gap: 10px;
+}
 .drive-bar-left svg { width: 20px; height: 20px; flex-shrink: 0; }
-.drive-bar-left span { font-size: .95rem; font-weight: 500; color: var(–ink); }
+.drive-bar-left span {
+font-size: .95rem; font-weight: 500; color: var(–ink);
+}
 .drive-bar-btn {
 background: var(–blue); color: var(–white);
 border: none; border-radius: var(–radius);
@@ -233,7 +243,6 @@ transition: background .18s; display: flex; align-items: center; gap: 6px;
 text-decoration: none;
 }
 .drive-bar-btn:hover { background: #3478C0; }
-
 .content-block h2 {
 font-family: var(–font-serif);
 font-size: 1.2rem; font-weight: 600;
@@ -252,7 +261,68 @@ color: var(–ink-soft); font-size: .95rem;
 line-height: 1.8; font-weight: 300; margin-bottom: 4px;
 }
 .content-block ul li::marker { color: var(–blue-light); }
-
+/* ─── GOOGLE DRIVE PANEL ─── */
+.gdrive-panel {
+background: var(–white);
+border: 1px solid var(–border);
+border-radius: var(–radius);
+overflow: hidden;
+position: sticky; top: calc(var(–nav-h) + 20px);
+}
+.gdrive-header {
+background: var(–off-white);
+padding: 14px 18px;
+display: flex; align-items: center; gap: 10px;
+border-bottom: 1px solid var(–border);
+}
+.gdrive-header svg { width: 18px; height: 18px; flex-shrink: 0; }
+.gdrive-header span { color: var(–ink); font-size: .875rem; font-weight: 500; }
+.gdrive-url-form {
+padding: 16px 18px;
+border-bottom: 1px solid var(–border);
+display: flex; flex-direction: column; gap: 7px;
+}
+.gdrive-url-label {
+font-size: .72rem; font-weight: 600;
+letter-spacing: .07em; text-transform: uppercase;
+color: var(–ink-muted);
+}
+.gdrive-url-row { display: flex; gap: 8px; }
+.gdrive-url-input {
+flex: 1; border: 1px solid var(–border);
+border-radius: var(–radius);
+padding: 7px 11px;
+font-size: .82rem; font-family: var(–font-sans);
+color: var(–ink); outline: none; background: var(–white);
+transition: border-color .18s;
+}
+.gdrive-url-input:focus { border-color: var(–blue); }
+.gdrive-btn {
+background: var(–blue); color: var(–white);
+border: none; border-radius: var(–radius);
+padding: 7px 14px; font-size: .82rem; font-weight: 600;
+cursor: pointer; transition: background .18s; white-space: nowrap;
+font-family: var(–font-sans);
+}
+.gdrive-btn:hover { background: #3478C0; }
+.gdrive-frame-wrap {
+height: 380px; background: var(–off-white);
+display: flex; align-items: center; justify-content: center;
+}
+.gdrive-frame-wrap iframe { width: 100%; height: 100%; border: none; display: none; }
+.gdrive-placeholder { text-align: center; padding: 28px 18px; }
+.gdrive-placeholder svg { width: 40px; height: 40px; margin-bottom: 10px; opacity: .3; }
+.gdrive-placeholder p { color: var(–ink-muted); font-size: .85rem; line-height: 1.6; font-weight: 300; }
+.gdrive-open-link {
+display: block; padding: 12px 18px;
+text-align: center; color: var(–blue);
+font-size: .82rem; font-weight: 600;
+text-decoration: none; letter-spacing: .03em;
+border-top: 1px solid var(–border);
+transition: background .18s; cursor: pointer;
+}
+.gdrive-open-link:hover { background: var(–blue-pale); }
+/* ─── FOOTER ─── */
 footer {
 background: var(–off-white);
 border-top: 1px solid var(–border);
@@ -304,7 +374,7 @@ display: flex; justify-content: space-between; align-items: center;
 .footer-copy { color: var(–ink-muted); font-size: .78rem; font-weight: 300; }
 .footer-logo { font-family: var(–font-serif); font-size: .95rem; font-weight: 600; color: var(–ink); }
 .footer-logo span { color: var(–blue); }
-
+/* ─── CV BAR ─── */
 .section-cv {
 padding: 64px 40px;
 background: var(–white);
@@ -317,9 +387,14 @@ border: 1px solid var(–border); border-radius: var(–radius);
 padding: 16px 24px; background: var(–white);
 flex-wrap: wrap; gap: 12px;
 }
-.cv-bar-left { display: flex; align-items: center; gap: 10px; }
+.cv-bar-left {
+display: flex; align-items: center; gap: 10px;
+}
 .cv-bar-left svg { width: 20px; height: 20px; flex-shrink: 0; }
-.cv-bar-left span { font-family: var(–font-serif); font-size: 1rem; font-weight: 600; color: var(–ink); }
+.cv-bar-left span {
+font-family: var(–font-serif);
+font-size: 1rem; font-weight: 600; color: var(–ink);
+}
 .cv-btn-view {
 background: var(–blue); color: var(–white);
 border: none; border-radius: var(–radius);
@@ -339,7 +414,7 @@ text-decoration: none;
 }
 .cv-btn-download:hover { background: var(–blue-pale); }
 .cv-box-actions { display: flex; gap: 8px; }
-
+/* ─── FADE IN ─── */
 @keyframes fadeIn {
 from { opacity: 0; transform: translateY(14px); }
 to   { opacity: 1; transform: translateY(0); }
@@ -348,11 +423,12 @@ to   { opacity: 1; transform: translateY(0); }
 .fi-2 { animation: fadeIn .4s .08s ease both; }
 .fi-3 { animation: fadeIn .4s .16s ease both; }
 .fi-4 { animation: fadeIn .4s .24s ease both; }
-
+/* ─── RESPONSIVE ─── */
 @media (max-width: 860px) {
 .hero-inner { grid-template-columns: 1fr; }
 .hero-photo { display: none; }
 .subpage-body-inner { grid-template-columns: 1fr; }
+.gdrive-panel { position: static; }
 .footer-inner { grid-template-columns: 1fr; }
 .footer-contacts { align-items: flex-start; }
 .footer-contacts-label { text-align: left; }
@@ -364,12 +440,10 @@ to   { opacity: 1; transform: translateY(0); }
 .hero, .section-cards, .subpage-hero, .subpage-body, footer { padding-left: 20px; padding-right: 20px; }
 }
 </style>
-
 </head>
-<body>
-
-<div class="page active" id="page-home">
-  <nav>
+<body><!-- ══════════════════════════════════════
+     HOME
+══════════════════════════════════════ --><div class="page active" id="page-home"><nav>
     <div class="nav-inner">
       <a class="nav-logo" onclick="showPage('home')" href="#">Tobiáš <span>Trkan</span></a>
       <ul class="nav-links">
@@ -379,8 +453,7 @@ to   { opacity: 1; transform: translateY(0); }
         <li><a onclick="showPage('dejepis')">Dějepis</a></li>
       </ul>
     </div>
-  </nav>
-  <main>
+  </nav><main>
     <section class="hero">
       <div class="hero-inner">
         <div>
@@ -400,12 +473,17 @@ to   { opacity: 1; transform: translateY(0); }
           </div>
         </div>
         <div class="hero-photo">
-          <img src="Fotka.jpeg" alt="Profilová fotografie" />
+          <img id="heroImg" src="Fotka.jpeg" alt="Profilová fotografie" />
+          <div class="photo-placeholder">
+            <div class="photo-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+            </div>
+            <strong>Vaše fotografie</strong>
+            <p>Doplňte src atribut obrázku svojí fotografií</p>
+          </div>
         </div>
       </div>
-    </section>
-    
-<section class="section-cards">
+    </section><section class="section-cards">
   <div class="section-cards-inner">
     <span class="section-label">Sekce portfolia</span>
     <h2 class="section-title">Oblasti mé práce</h2>
@@ -436,9 +514,7 @@ to   { opacity: 1; transform: translateY(0); }
       </a>
     </div>
   </div>
-</section>
-
-<section class="section-cv">
+</section><section class="section-cv">
   <div class="section-cv-inner">
     <span class="section-label">Životopis</span>
     <h2 class="section-title" style="margin-bottom:24px;">Curriculum Vitae</h2>
@@ -459,17 +535,11 @@ to   { opacity: 1; transform: translateY(0); }
       </div>
     </div>
   </div>
-</section>
-
-
-  </main>
-
-  <footer>
+</section></main><footer>
     <div class="footer-inner">
       <div>
         <p class="footer-motto-label">Motto</p>
-        <p class="footer-motto">Lhostejnost k druhým a lhostejnost k osudu celku je přesně tím, co otevírá dveře zlu.</p>
-        <p class="footer-motto-author">— Václav Havel</p>
+        <p class="footer-motto">Lhostejnost k druhým a lhostejnost k osudu celku je přesně tím, co otevírá dveře zlu.</p><p class="footer-motto-author">— Václav Havel</p>
       </div>
       <div class="footer-contacts">
         <p class="footer-contacts-label">Kontakt</p>
@@ -482,11 +552,9 @@ to   { opacity: 1; transform: translateY(0); }
       <span class="footer-logo">Tobiáš <span>Trkan</span></span>
     </div>
   </footer>
-</div>
-
-<!-- PEDAGOGICKÉ PRAXE -->
-
-<div class="page" id="page-praxe">
+</div><!-- ══════════════════════════════════════
+     PEDAGOGICKÉ PRAXE
+══════════════════════════════════════ --><div class="page" id="page-praxe">
   <nav><div class="nav-inner">
     <a class="nav-logo" onclick="showPage('home')" href="#">Tobiáš <span>Trkan</span></a>
     <ul class="nav-links">
@@ -516,7 +584,7 @@ to   { opacity: 1; transform: translateY(0); }
           <li>Zprávy ze cvičných škol a hodnocení mentorů</li>
           <li>Sebereflexe a profesní rozvoj</li>
         </ul>
-        <p style="margin-top:14px;">Veškeré materiály jsou dostupné ve složce Google Drive níže.</p>
+        <p style="margin-top:14px;">Veškeré materiály jsou dostupné ve složce Google Drive v panelu vpravo.</p>
       </div>
       <div class="drive-bar">
         <div class="drive-bar-left">
@@ -541,11 +609,9 @@ to   { opacity: 1; transform: translateY(0); }
     </div>
     <div class="footer-bottom"><span class="footer-copy">© 2025 Tobiáš Trkan. Všechna práva vyhrazena.</span><span class="footer-logo">Tobiáš <span>Trkan</span></span></div>
   </footer>
-</div>
-
-<!-- PEDAGOGIKA -->
-
-<div class="page" id="page-pedagogika">
+</div><!-- ══════════════════════════════════════
+     PEDAGOGIKA
+══════════════════════════════════════ --><div class="page" id="page-pedagogika">
   <nav><div class="nav-inner">
     <a class="nav-logo" onclick="showPage('home')" href="#">Tobiáš <span>Trkan</span></a>
     <ul class="nav-links">
@@ -575,6 +641,7 @@ to   { opacity: 1; transform: translateY(0); }
           <li>Hodnocení žáků a zpětná vazba</li>
           <li>Výukové metody a aktivizační strategie</li>
         </ul>
+        <p style="margin-top:14px;">Dokumenty a studijní materiály jsou organizovány ve složce Google Drive v panelu vpravo.</p>
       </div>
       <div class="drive-bar">
         <div class="drive-bar-left">
@@ -599,11 +666,9 @@ to   { opacity: 1; transform: translateY(0); }
     </div>
     <div class="footer-bottom"><span class="footer-copy">© 2025 Tobiáš Trkan. Všechna práva vyhrazena.</span><span class="footer-logo">Tobiáš <span>Trkan</span></span></div>
   </footer>
-</div>
-
-<!-- HUDEBNÍ VÝCHOVA -->
-
-<div class="page" id="page-hudebni">
+</div><!-- ══════════════════════════════════════
+     HUDEBNÍ VÝCHOVA
+══════════════════════════════════════ --><div class="page" id="page-hudebni">
   <nav><div class="nav-inner">
     <a class="nav-logo" onclick="showPage('home')" href="#">Tobiáš <span>Trkan</span></a>
     <ul class="nav-links">
@@ -633,6 +698,7 @@ to   { opacity: 1; transform: translateY(0); }
           <li>Průřezová témata: hudba a dějiny, hudba a literatura</li>
           <li>Projektová výuka a interdisciplinární přístupy</li>
         </ul>
+        <p style="margin-top:14px;">Všechny vytvořené materiály najdete ve složce Google Drive v panelu vpravo.</p>
       </div>
       <div class="drive-bar">
         <div class="drive-bar-left">
@@ -657,11 +723,9 @@ to   { opacity: 1; transform: translateY(0); }
     </div>
     <div class="footer-bottom"><span class="footer-copy">© 2025 Tobiáš Trkan. Všechna práva vyhrazena.</span><span class="footer-logo">Tobiáš <span>Trkan</span></span></div>
   </footer>
-</div>
-
-<!-- DĚJEPIS -->
-
-<div class="page" id="page-dejepis">
+</div><!-- ══════════════════════════════════════
+     DĚJEPIS
+══════════════════════════════════════ --><div class="page" id="page-dejepis">
   <nav><div class="nav-inner">
     <a class="nav-logo" onclick="showPage('home')" href="#">Tobiáš <span>Trkan</span></a>
     <ul class="nav-links">
@@ -691,6 +755,7 @@ to   { opacity: 1; transform: translateY(0); }
           <li>Témata: starověk, středověk, novověk, 20. století</li>
           <li>Regionální dějiny a místní paměť</li>
         </ul>
+        <p style="margin-top:14px;">Veškeré materiály jsou uspořádány ve složce Google Drive v panelu vpravo.</p>
       </div>
       <div class="drive-bar">
         <div class="drive-bar-left">
@@ -715,16 +780,12 @@ to   { opacity: 1; transform: translateY(0); }
     </div>
     <div class="footer-bottom"><span class="footer-copy">© 2025 Tobiáš Trkan. Všechna práva vyhrazena.</span><span class="footer-logo">Tobiáš <span>Trkan</span></span></div>
   </footer>
-</div>
-
-<script>
+</div><script>
   function showPage(id) {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const el = document.getElementById('page-' + id);
     if (el) { el.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
   }
   document.querySelectorAll('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
-</script>
-
-</body>
+</script></body>
 </html>
