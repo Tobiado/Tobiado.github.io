@@ -11,6 +11,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+```
 :root {
   --blue:       #4A90D9;
   --blue-light: #7BB3E8;
@@ -844,45 +845,8 @@ footer {
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     const el = document.getElementById('page-' + id);
     if (el) { el.classList.add('active'); window.scrollTo({ top: 0, behavior: 'smooth' }); }
-    if (id === 'praxe') loadDrive('praxe');
   }
-  function toEmbedUrl(url) {
-    const m = url.match(/\/folders\/([a-zA-Z0-9_-]+)/);
-    return m ? `https://drive.google.com/embeddedfolderview?id=${m[1]}#list` : url;
-  }
-  function loadDrive(key) {
-    const rawUrl = document.getElementById('url-' + key).value.trim();
-    if (!rawUrl) { alert('Prosím vložte odkaz na složku Google Drive.'); return; }
-    const iframe = document.getElementById('iframe-' + key);
-    const placeholder = document.getElementById('placeholder-' + key);
-    const link = document.getElementById('link-' + key);
-    const linkDef = document.getElementById('link-' + key + '-default');
-    iframe.src = toEmbedUrl(rawUrl);
-    iframe.style.display = 'block';
-    placeholder.style.display = 'none';
-    link.href = rawUrl; link.style.display = 'block';
-    if (linkDef) linkDef.style.display = 'none';
-  }
-  function loadCV() {
-    const rawUrl = document.getElementById('cv-url-input').value.trim();
-    if (!rawUrl) { alert('Prosím vložte odkaz na PDF životopis.'); return; }
-    // Convert Google Drive share link to embed/preview link
-    let embedUrl = rawUrl;
-    const driveMatch = rawUrl.match(/\/file\/d\/([a-zA-Z0-9_-]+)/);
-    if (driveMatch) {
-      embedUrl = `https://drive.google.com/file/d/${driveMatch[1]}/preview`;
-    }
-    const iframe = document.getElementById('cv-iframe');
-    const placeholder = document.getElementById('cv-placeholder');
-    const viewBtn = document.getElementById('cv-view-btn');
-    const dlBtn = document.getElementById('cv-download-btn');
-    iframe.src = embedUrl;
-    iframe.style.display = 'block';
-    placeholder.style.display = 'none';
-    viewBtn.href = rawUrl; viewBtn.style.display = 'flex';
-    dlBtn.href = rawUrl; dlBtn.style.display = 'flex';
-  }
-
+  document.querySelectorAll('a[href="#"]').forEach(a => a.addEventListener('click', e => e.preventDefault()));
 </script>
 
 </body>
