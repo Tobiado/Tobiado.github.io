@@ -136,8 +136,8 @@ main { flex: 1; }
   align-items: center; justify-content: center;
   overflow: hidden;
 }
-.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: none; }
-.photo-placeholder { display: none; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.photo-placeholder { text-align: center; padding: 24px 16px; }
 .photo-icon {
   width: 56px; height: 56px; border-radius: 50%;
   background: var(--blue-pale);
@@ -146,7 +146,7 @@ main { flex: 1; }
 }
 .photo-icon svg { width: 26px; height: 26px; fill: var(--blue); }
 .photo-placeholder p { color: var(--ink-muted); font-size: .78rem; line-height: 1.6; }
-.photo-placeholder strong { display: none; color: var(--blue); font-size: .8rem; margin-bottom: 4px; }
+.photo-placeholder strong { display: block; color: var(--blue); font-size: .8rem; margin-bottom: 4px; }
 
 /* ─── CARDS SECTION ─── */
 .section-cards {
@@ -460,7 +460,7 @@ footer {
   .nav-links li a { padding: 6px 9px; font-size: .78rem; }
   .hero, .section-cards, .subpage-hero, .subpage-body, footer { padding-left: 20px; padding-right: 20px; }
 }
-
+    
   </style>
 </head>
 <body>
@@ -515,6 +515,7 @@ footer {
       </div>
     </section>
 
+ 
 <section class="section-cards">
   <div class="section-cards-inner">
     <span class="section-label">Sekce portfolia</span>
@@ -570,7 +571,7 @@ footer {
     </div>
   </div>
 </section>
-
+ 
   </main>
 
   <footer>
